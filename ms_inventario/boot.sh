@@ -9,6 +9,6 @@ else
 fi
 echo "environment set to: $VAR_CONTEXT"
 export FLASK_CONTEXT=$VAR_CONTEXT
-python3 app.py
+python app.py
 
 #ejecutar "./boot.sh development" para desarrollo y "./boot.sh production" para produccion

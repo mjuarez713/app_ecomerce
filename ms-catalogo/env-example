@@ -1,8 +1,0 @@
-SQLALCHEMY_TRACK_MODIFICATIONS = False
-SQLALCHEMY_RECORD_QUERIES = True
-
-
-#Conexion a la base de datos (primero debe ser creada en postgres para luego conectarla)
-
-DEV_DATABASE_URI='postgresql+psycopg2://usuario:pasword@localhost:5432/database'
-PROD_DATABASE_URI='postgresql://seba:pasword@localhost:5432/database'

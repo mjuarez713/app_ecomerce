@@ -5,6 +5,9 @@ from app.repositories import ProductRepository
 repository = ProductRepository()
 
 class ProductService:
+    def save(self, product: Product) -> Product:
+        return repository.save(product)
+
     def all(self) -> List[Product]:
         """Obtiene todos los productos."""
         return repository.all()

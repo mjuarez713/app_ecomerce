@@ -3,6 +3,11 @@ from app.models import Product
 from app import db
 
 class ProductRepository:
+    
+    def save(self, product: Product) -> Product:
+        db.session.add(product)
+        db.session.commit()
+        return product
 
     def all(self) -> List[Product]:
         """Obtiene todos los productos de la base de datos."""

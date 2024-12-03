@@ -8,6 +8,4 @@ class CompraRepository:
     db.sessions.add(compra)
     db.session.commit()
     return compra
-  
-  def delete(self, id:int) -> Compra:
-    compra = Compra.query.get(id)
+
