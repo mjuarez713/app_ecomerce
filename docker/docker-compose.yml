@@ -1,0 +1,47 @@
+services:
+  mscompras:
+    image: mscompras:v1.0.2
+    container_name: mscompras
+    depends_on:
+      - ecomerce
+    ports:
+      - 5003:5000
+    networks:
+      - mired
+    environment:
+      - FLASK_CONTEXT=${FLASK_CONTEXT}
+      - DEV_DATABASE_URI=${DEV_DATABASE_URI}
+      - PROD_DATABASE_URI=${PROD_DATABASE_URI}
+  msinventarios:
+    build:
+      context: ../ms_inventario
+      dockerfile: Dockerfile
+    image: msinventario:v1.0.2
+    container_name: msinventarios
+    ports:
+      - 5004:5000
+    networks:
+      - mired
+    environment:
+      - FLASK_CONTEXT=${FLASK_CONTEXT}
+      - DEV_DATABASE_URI=${DEV_DATABASE_URI}
+      - PROD_DATABASE_URI=${PROD_DATABASE_URI}
+  # Todos los microservicios y servicios (redis, postgresql) deben estar en la misma red
+  recipes_postgres:
+    image: postgres:15.4-bullseye
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - mired
+networks:
+  mired:
+    external: true
+
+volumes:
+  postgres_data:
