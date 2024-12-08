@@ -6,7 +6,7 @@ from datetime import datetime
 
 repository = PaymentRepository()
 
-class StockService:
+class PaymentService:
 
   def all(self) -> List[Payment]:
     return repository.all()

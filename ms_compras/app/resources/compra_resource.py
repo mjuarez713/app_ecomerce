@@ -11,3 +11,4 @@ def create():
     compra = compra_schema.load(request.json)
     resp = compra_schema.dump(service.save(compra))
     return resp, 201
+

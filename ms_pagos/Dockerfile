@@ -1,6 +1,6 @@
-FROM python:3.10-slim-bullseye
+FROM python:3.12-slim-bookworm
 
-ENV FLASK_CONTEXT=development
+ENV FLASK_CONTEXT=production
 ENV PYTHONUNBUFFERED=1
 ENV PATH=$PATH:/home/flaskapp/.local/bin
 
@@ -26,4 +26,3 @@ RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 5000
 
 CMD [ "python", "./app.py" ]
-
