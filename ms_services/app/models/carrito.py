@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from app.models import Product, Compra
+from ..models import Product, Compra
 
 
 @dataclass

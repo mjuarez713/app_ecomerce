@@ -1,11 +1,11 @@
 from flask import jsonify, Blueprint, request
 
-from app.mapping import CarritoSchema, ProductSchema
+from app.mapping import CarritoSchema, ProductoSchema
 from app.services import CommerceService
 
 home = Blueprint('home', __name__)
 carrito_schema = CarritoSchema()
-producto_schema = ProductSchema()
+producto_schema = ProductoSchema()
 
 @home.route('/commerce/comprar', methods=['POST'])
 def index():

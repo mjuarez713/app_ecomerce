@@ -2,8 +2,8 @@ from flask import Flask
 #from flask_caching import Cache
 from flask_marshmallow import Marshmallow
 import os
-from app.config import config
-#from app.config.cache_config import cache_config
+from ms_services.app.config import config
+#from ms_services.app.config.cache_config import cache_config
 
 ma = Marshmallow()
 #cache = Cache()
@@ -17,7 +17,7 @@ def create_app() -> Flask:
     ma.init_app(app)
     #cache.init_app(app, config=cache_config)
     
-    from app.resources import home
+    from .resources import home
     app.register_blueprint(home, url_prefix='/api/v1')
     
     @app.shell_context_processor    

@@ -1,4 +1,4 @@
-from app import create_app
+from app.__init__ import create_app
 import logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s [%(levelname)s] %(message)s')
 

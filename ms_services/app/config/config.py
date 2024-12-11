@@ -13,6 +13,7 @@ class Config(object):
     def init_app(app):
         pass
 
+"""
 class TestConfig(Config):
     TESTING = True
     DEBUG = True
@@ -20,6 +21,7 @@ class TestConfig(Config):
     CACHE_REDIS_PORT = os.environ.get('REDIS_PORT')
     CACHE_REDIS_DB = os.environ.get('REDIS_DB')
     CACHE_REDIS_PASSWORD = os.environ.get('REDIS_PASSWORD')
+"""
 
 class DevelopmentConfig(Config):
     TESTING = True
@@ -35,9 +37,9 @@ class ProductionConfig(Config):
 
 def factory(app):
     configuration = {
-        'testing': TestConfig,
+        #'testing': TestConfig,
         'development': DevelopmentConfig,
         'production': ProductionConfig
     }
     
-    return configuration[app];
+    return configuration[app]()

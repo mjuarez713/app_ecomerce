@@ -16,6 +16,7 @@ USER flaskapp
 RUN mkdir app
 
 COPY ./app ./app
+ENV PYTHONPATH=/home/flaskapp/app
 COPY ./app.py .
 
 ADD requirements.txt ./requirements.txt

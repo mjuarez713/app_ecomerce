@@ -1,8 +1,8 @@
 import os
 import requests
 from app.models import Product
-from app.mapping import ProductSchema
-producto_schema = ProductSchema()
+from app.mapping import ProductoSchema
+producto_schema = ProductoSchema()
 
 class ClienteCatalogoService:
 
